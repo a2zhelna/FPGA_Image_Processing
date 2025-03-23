@@ -74,16 +74,6 @@ always @(posedge clock) begin
 		kernel[2][0] <=  8'sd0;
 		kernel[2][1] <= -8'sd1;
 		kernel[2][2] <=  8'sd0;
-		
-		// kernel[0][0] <=  8'd0;
-		// kernel[0][1] <= 8'd0;
-		// kernel[0][2] <=  8'd0;
-		// kernel[1][0] <= 8'd0;
-		// kernel[1][1] <=  8'd1;
-		// kernel[1][2] <= 8'd0;
-		// kernel[2][0] <=  8'd0;
-		// kernel[2][1] <= 8'd0;
-		// kernel[2][2] <=  8'd0;
 	end
 	else begin
 		case(receiver_state)
@@ -217,26 +207,6 @@ always @(*) begin
 							(kernel_operand[7]  * kernel[2][1]) +
 							(kernel_operand[8]  * kernel[2][2]);
 end
-
-reg [7:0] inbuf_test_display00;
-reg [7:0] inbuf_test_display01;
-reg [7:0] inbuf_test_display02;
-reg [7:0] inbuf_test_display10;
-reg [7:0] inbuf_test_display11;
-reg [7:0] inbuf_test_display12;
-reg [7:0] inbuf_test_display20;
-reg [7:0] inbuf_test_display21;
-reg [7:0] inbuf_test_display22;
-
-assign inbuf_test_display00 = inbuf[(inbuf_ptr+1)%4][proc_idx];
-assign inbuf_test_display01 = inbuf[(inbuf_ptr+1)%4][proc_idx+3];
-assign inbuf_test_display02 = inbuf[(inbuf_ptr+1)%4][proc_idx+6];
-assign inbuf_test_display10 = inbuf[(inbuf_ptr+2)%4][proc_idx];
-assign inbuf_test_display11 = inbuf[(inbuf_ptr+2)%4][proc_idx+3];
-assign inbuf_test_display12 = inbuf[(inbuf_ptr+2)%4][proc_idx+6];
-assign inbuf_test_display20 = inbuf[(inbuf_ptr+3)%4][proc_idx];
-assign inbuf_test_display21 = inbuf[(inbuf_ptr+3)%4][proc_idx+3];
-assign inbuf_test_display22 = inbuf[(inbuf_ptr+3)%4][proc_idx+6];
 
 //Bound the convolution result
 always @(*) begin
